@@ -1,0 +1,28 @@
+*
+    box-sizing: border-box
+
+HTML
+    font-size: 62.5%
+
+HTML, BODY
+    height: 100%
+    width: 100%
+
+BODY
+    font-family: $baseFont
+    color: $baseFontColor
+    -webkit-text-size-adjust: none
+    //overflow: hidden
+
+.clearfix
+    *zoom: 1
+
+.clearfix:before,
+.clearfix:after
+    display: table
+    line-height: 0
+    content: ''
+
+.clearfix:after
+    clear: both
+

@@ -1,0 +1,65 @@
+{
+  "name": "stada-kit",
+  "version": "0.0.1",
+  "description": "Stada medical kit",
+  "repository": "git@cpeople.git.beanstalkapp.com:/cpeople/stada-kit.git",
+  "main": "_html/index.php",
+  "scripts": {
+    "testaddCustom_spec": "mocha --compilers js:babel-core/register ./_src/js/tests/reducer/addCustom_spec.js",
+    "testcalculateAutoProducts": "mocha --compilers js:babel-core/register ./_src/js/tests/reducer/calculateAutoProducts_spec.js",
+    "testgetActiveControls": "mocha --compilers js:babel-core/register ./_src/js/tests/reducer/getActiveControls_spec.js",
+    "testautoDeleted_spec": "mocha --compilers js:babel-core/register ./_src/js/tests/reducer/autoDeleted_spec.js",
+    "testrecommended_spec": "mocha --compilers js:babel-core/register ./_src/js/tests/reducer/recommended_spec.js",
+    "test": "mocha --compilers js:babel-core/register ./_src/js/tests/**/*.js*",
+    "tw": "npm run test -- --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.3.13",
+    "babel-eslint": "^4.1.6",
+    "babel-loader": "^6.2.0",
+    "babel-plugin-transform-es3-member-expression-literals": "^6.3.13",
+    "babel-plugin-transform-es3-property-literals": "^6.3.13",
+    "babel-plugin-transform-runtime": "^6.3.13",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "chai": "^3.4.1",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-compass": "^2.1.0",
+    "gulp-csso": "^1.0.1",
+    "gulp-eslint": "^1.1.1",
+    "gulp-jshint": "^2.0.0",
+    "gulp-shell": "^0.5.1",
+    "gulp-svgmin": "^1.2.0",
+    "gulp-util": "^3.0.7",
+    "mocha": "^2.3.4",
+    "node-sass": "^3.4.2",
+    "react-addons-test-utils": "^0.14.3",
+    "webpack": "^1.12.9"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  },
+  "dependencies": {
+    "babel-es6-polyfill": "^1.0.1",
+    "classnames": "^2.2.1",
+    "jquery": "^2.1.4",
+    "jquery-ui": "^1.10.5",
+    "object-assign-deep": "0.0.4",
+    "react": "^0.14.3",
+    "react-addons-css-transition-group": "^0.14.3",
+    "react-addons-transition-group": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "react-gemini-scrollbar": "^2.1.0",
+    "react-modal": "^0.6.1",
+    "redux": "^3.0.5",
+    "redux-thunk": "^1.0.3",
+    "underscore": "^1.8.3"
+  }
+}

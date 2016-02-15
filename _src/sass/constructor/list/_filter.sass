@@ -1,0 +1,92 @@
+.list-filter
+    padding-right: 40px
+    position: relative
+
+    &-toggle
+        +f(1.3rem, 1.5rem)
+        font-family: $baseFontMedium
+        border-bottom: 1px dotted
+        position: relative
+        cursor: pointer
+
+        &:after
+            +whAbs(10px, 6px)
+            right: -18px
+            top: 50%
+            margin-top: -3px
+            @extend %svg_arrow_list_bottom
+            transition: all $transitionSpeed
+
+        &:hover, &._active
+            border-color: transparent
+
+        &._active
+
+            &:after
+                transform: rotate(180deg)
+
+    &-wr
+        //display: none
+        position: absolute
+        right: 0
+        top: 25px
+        background: white
+        min-width: 320px
+        box-shadow: 0 0 5px 2px rgba(0,0,0,0.15)
+        padding: 22px 20px 31px 20px
+
+        z-index: -1
+        visibility: hidden
+        pointer-events: none
+        opacity: 0
+        transition: all $transitionSpeed
+
+
+        &._active
+            //display: block
+
+            z-index: auto
+            visibility: visible
+            pointer-events: auto
+            opacity: 1
+
+        &:before
+            content: ''
+            position: absolute
+            top: -6px
+            right: 19px
+            width: 0
+            height: 0
+            border-style: solid
+            border-width: 0 6px 6px 6px
+            border-color: transparent transparent white transparent
+
+    &-item
+        margin-bottom: 21px
+        font-family: $baseFontMedium
+        
+        &:last-child
+            margin-bottom: 0
+
+        &-title
+            +f(1.3rem, 1.3rem)
+            margin-bottom: 8px
+
+        &-select
+            -moz-appearance: none
+            -webkit-appearance: none
+            display: block
+            width: 100%
+            border: 1px solid #d6d6db
+            border-radius: 2px
+            font-family: $baseFontMedium
+            padding: 9px 7px 10px 7px
+
+            cursor: pointer
+
+            @extend %svg_arrow_list_bottom
+            background-repeat: no-repeat
+            background-position: center right 15px
+
+            &::-ms-expand
+                display: none

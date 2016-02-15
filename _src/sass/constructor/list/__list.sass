@@ -1,0 +1,39 @@
+.list
+    position: absolute
+    +lt(280px, $menuHeight)
+    width: calc(100% - 280px)
+    height: calc(100% - 57px)
+
+    &._front
+        z-index: 11
+
+    &-wr
+        z-index: 1
+        //padding-top: 25px
+        position: absolute
+        left: 0
+        top: 57px
+        width: 100%
+        height: calc(100% - 115px)
+        overflow-y: auto
+        -webkit-overflow-scrolling: touch
+        //+max-screen($screenS)
+        //    padding-top: 10px
+
+    &-all-hidden
+        padding: 80px 0 0 20px
+        //padding-left: 20px
+        +f(1.8rem, 1.8rem)
+        font-family: "RalewaySemiBold",sans-serif
+        margin-right: auto
+
+@import "header"
+@import "footer"
+@import "item"
+@import "original-quantity"
+@import "add-custom"
+@import "save"
+@import "total"
+@import "filter"
+@import "custom"
+@import "recommended"

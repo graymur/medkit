@@ -1,0 +1,40 @@
+.menu
+    position: absolute
+    +lt(0, 0)
+    +wh(100%, $menuHeight)
+    background: #2f323b
+    z-index: 11
+
+    &-links
+        position: absolute
+        +lt(280px, 0)
+        +wh(auto, 100%)
+        display: flex
+        font-family: $baseFontSemiBold
+        +max-screen($screenS)
+            left: 145px
+
+        &-hint
+            +f(1.4rem, $menuHeight)
+            color: #767a87
+            padding-right: 20px
+
+        &-item
+            color: white
+            +f(1.4rem, $menuHeight)
+            display: block
+            padding: 0 20px
+            text-decoration: none
+            transition: all $transitionSpeed
+
+            &._active
+                background: #ffdf7c
+                color: black
+
+            &:hover:not(._active)
+                background: #3e414a
+
+
+
+
+

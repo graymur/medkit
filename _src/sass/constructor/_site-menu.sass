@@ -1,0 +1,75 @@
+.site-menu
+    position: fixed
+    +lt(-100%, 0)
+    +wh(280px, 100%)
+    background: rgba(67, 45, 107, 0.9)
+    z-index: 1
+    opacity: 0
+    transition: all $transitionSpeed
+
+    &._active
+        display: block
+        left: 0
+        opacity: 1
+
+    &-toggle
+        position: absolute
+        +lt(25px, 20px)
+        +wh(22px, 16px)
+        transition: all $transitionSpeed
+        z-index: 2
+
+        &:before, &:after, I
+            content: ''
+            position: absolute
+            left: 0
+            +wh(20px, 2px)
+            background: white
+            border-radius: 2px
+            transition: all $transitionSpeed
+
+        I
+            top: 7px
+
+
+        &:before
+            top: 0
+
+        &:after
+            top: 14px
+
+        &._active
+            +wh(36px, 36px)
+            +lt(15px, 10px)
+            border: 2px solid #ffdd74
+            border-radius: 50%
+            background: transparent
+            transform: rotate(45deg)
+
+            &:before, &:after
+                +lt(50%, 50%)
+                +wh(24px, 2px)
+                margin: -1px 0 0 -12px
+                background: #ffdd74
+
+            &:after
+                transform: rotate(90deg)
+
+            I
+                opacity: 0
+
+    &-item
+        display: block
+        padding: 0 10px 0 16px
+        +f(1.5rem, 4.4rem)
+        font-family: $baseFontMedium
+        color: white
+        text-decoration: none
+        letter-spacing: 1px
+
+        &:hover
+            color: #ffdd74
+            
+        &:first-child
+            margin-top: 70px
+

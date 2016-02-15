@@ -1,0 +1,218 @@
+.filter
+    position: absolute
+    +lt(0, $menuHeight)
+    +wh(280px, calc(100% - #{$menuHeight}))
+    background: #7560a0
+    z-index: 10
+    color: white
+    overflow: hidden
+
+    .touch &
+        overflow-y: scroll
+        -webkit-overflow-scrolling: touch
+
+    &-item
+        transition: all $transitionSpeed
+
+        &-title
+            position: relative
+            height: 5.7rem
+
+            display: flex
+            align-items: center
+
+            padding: 0 25px 0 25px
+
+            +f(1.5rem, 1.8rem)
+            outline: none
+            color: white
+            text-decoration: none
+            transition: all $transitionSpeed
+            border-bottom: 1px solid #685492
+
+            &:hover
+                background: #685492
+                color: white
+
+            &:before
+                content: ''
+                position: absolute
+                +lt(12px, 50%)
+                margin-top: -3px
+                +wh(5px, 5px)
+                border-radius: 100%
+                background: white
+                opacity: 0
+                transition: all $transitionSpeed
+
+            SPAN
+                display: block
+
+        &-content
+            display: none
+            //max-height: 0
+            //overflow: hidden
+            //transition: all $transitionSpeed
+
+            .filter-item
+
+                &-title
+                    color: #d5cee4
+                    font-size: 1.3rem
+                    padding-left: 40px
+
+                    &:before
+                        left: 27px
+
+                    &:hover
+                        color: white
+
+                &._active
+                    .filter-item-title
+                        color: white
+
+                    //& > .filter-item-content
+                        //max-height: 300px
+
+        &-controls
+            background: #f3f0f9
+            padding: 28px 20px 25px 25px
+            color: $baseFontColor
+
+        &._active
+            background: #685492
+
+            & > .filter-item-title
+                &:before
+                    opacity: 1
+
+            //& > .filter-item-content
+                //max-height: 1000px
+
+    &-controls-item
+        position: relative
+        margin-bottom: 46px
+        
+        &:last-child
+            margin-bottom: 22px
+
+        //&._slider
+
+        &._checkbox
+            //border: 1px solid red
+            position: relative
+            +f(1.3rem, 1.8rem)
+            padding: 0 0 0 26px
+            min-height: 18px
+            cursor: pointer
+            
+            &:before
+                +whAbsLtZero(16px, 16px)
+                border: 1px solid #c9c0d9
+                background: white
+                border-radius: 2px
+
+            &:after
+                +whAbs(10px, 7px)
+                +lt(4px, 6px)
+                @extend %svg_check_active
+                opacity: 0
+                transition: all 0.2s
+
+            &._checked
+
+                &:after
+                    opacity: 1
+
+
+    &-controls-slider
+
+        &-title
+            +f(1.2rem, 1.2rem)
+            position: relative
+            padding-bottom: 24px
+
+        &-value
+            position: absolute
+            right: 5px
+
+        &-wr
+            position: relative
+            margin: 0 37px
+
+        &-bg
+            position: absolute
+            width: 0
+            left: 0
+            bottom: 0
+            border-top: 2px solid #9e90bc
+            transition: all $transitionSpeed
+
+        &-control
+            position: absolute
+            top: 26px
+            +wh(18px, 18px)
+            border-radius: 100%
+            background: #cdc6dd
+            cursor: pointer
+            transition: all $transitionSpeed
+
+            &:hover
+                background: #9e90bc
+
+            .touch &
+                &:hover
+                    background: #cdc6dd
+
+                &:active
+                    background: #9e90bc
+
+            &:before
+                content: ''
+                position: absolute
+                +lt(50%, 50%)
+                margin: -1px 0 0 -3px
+                +wh(6px, 2px)
+                background: white
+
+            &._minus
+                left: 0
+
+            &._plus
+                right: 0
+
+                &:before
+                    margin: -1px 0 0 -4px
+                    +wh(8px, 2px)
+
+                &:after
+                    content: ''
+                    position: absolute
+                    +lt(50%, 50%)
+                    margin: -4px 0 0 -1px
+                    +wh(2px, 8px)
+                    background: white
+
+        &-label
+            position: absolute
+            top: 45px
+            color: #a69bbc
+            +f(1rem, 1rem)
+
+            &._min
+                left: 18px
+
+            &._max
+                right: 18px
+
+    //&-controls-checkbox
+        border: 1px solid red
+
+    .gm-scrollbar.-vertical
+        background: transparent
+        width: 4px
+
+        .thumb
+            background: black
+            opacity: 0.1
+

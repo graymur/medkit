@@ -1,0 +1,178 @@
+.save
+
+    &-toggle
+        display: block
+        +f(1.5rem, 4.1rem)
+        background: #ffdf7c
+        padding: 0 17px
+        font-family: $baseFontMedium
+        border-radius: 2px
+        cursor: pointer
+        letter-spacing: 0.5px
+
+    &-popup
+        +wh(580px, 270px)
+        font-family: $baseFontMedium
+        background: #fff1c3
+
+        &-close
+            position: absolute
+            top: 0
+            right: 0
+            +wh(44px, 44px)
+            @extend %svg_close_popup
+            background-position: 15px 15px
+            cursor: pointer
+            z-index: 20
+
+        &-top
+            height: 170px
+            background: white
+            position: relative
+            overflow: hidden
+
+        &-email
+            position: relative
+            top: -100%
+            height: 100%
+            transition: all $transitionSpeed
+
+            &._active
+                top: 0
+                
+            &-input
+                font-family: $baseFontMedium
+                border: 1px solid #aaacb6
+                border-radius: 2px
+                display: inline-block
+                padding: 12px 10px 11px 10px
+                min-height: 42px
+                width: 255px
+
+                &._valid
+                    border: 1px solid green
+
+                &._invalid
+                    border: 1px solid red
+
+            &-submit
+                font-family: $baseFontMedium
+                display: inline-block
+                +f(1.5rem, 4.2rem)
+                border-radius: 2px
+                background-color: #ffdf7c
+                border: 0
+                padding: 0 25px
+                margin: 0 40px 0 20px
+                outline: none
+                cursor: pointer
+
+            &-cancel
+                +f(1.5rem, 4.2rem)
+                padding: 0 10px
+                cursor: pointer
+
+            &-wr
+                position: relative
+                height: 100%
+                overflow: hidden
+
+            &-success, &-form
+                position: relative
+                height: 100%
+                top: -100%
+                transition: all $transitionSpeed
+
+                ._success &
+                    top: 0
+
+            &-form
+                display: flex
+                justify-content: center
+                align-items: center
+
+            &-success
+                text-align: center
+
+                &-title
+                    +f(1.5rem, 1.8rem)
+                    width: 100%
+                    text-align: center
+                    //border: 1px solid red
+                    padding: 50px 0 20px 0
+
+                &-back, &-close
+                    display: inline-block
+                    +f(1.5rem, 4.2rem)
+                    padding: 0 20px
+                    cursor: pointer
+
+                &-back
+                    border-radius: 2px
+                    background-color: #ffdf7c
+                    margin-left: 20px
+
+        &-options
+            position: relative
+            top: -100%
+            display: flex
+            justify-content: center
+            align-items: center
+            height: 100%
+            transition: all $transitionSpeed
+
+            &._inactive
+                top: 0
+
+            &-item
+                border: 0
+                display: block
+                +wh(170px, 80px)
+                padding: 60px 0 0 0
+                text-align: center
+                background-color: transparent
+                background-repeat: no-repeat
+                background-position: center top
+                cursor: pointer
+                +f(1.5rem, 2rem)
+                letter-spacing: 0.5px
+                font-family: $baseFontMedium
+                outline: none
+                
+                &._pdf
+                    @extend %svg_pdf
+
+                &._print
+                    @extend %svg_print
+
+                &._email
+                    @extend %svg_mail
+
+        &-links
+            text-align: center
+
+            &-title
+                +f(1.4rem, 1.8rem)
+                display: block
+                padding: 15px 0 10px 0
+                letter-spacing: 0.7px
+
+            &-item
+                display: inline-block
+                +wh(120px, 42px)
+                margin: 0 5px
+                position: relative
+                border-radius: 2px
+
+                IMG
+                    position: absolute
+                    margin: auto
+                    top: 0
+                    left: 0
+                    right: 0
+                    bottom: 0
+                    max-width: 80%
+                    max-height: 80%
+
+                &:hover
+                    background-color: #ffdf7c

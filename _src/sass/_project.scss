@@ -1,0 +1,74 @@
+@function rem($pxValue) {
+    @return $pxValue / $baseFontSize + rem;
+}
+
+@mixin wh($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin lt($left, $top) {
+    left: $left;
+    top: $top;
+}
+
+@mixin flexVA() {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@mixin whAbs($width, $height) {
+    content: '';
+    position: absolute;
+    @include wh($width, $height);
+}
+
+@mixin whAbsLtZero($width, $height) {
+    content: '';
+    position: absolute;
+    @include lt(0, 0);
+    @include wh($width, $height);
+}
+
+@mixin whAbsLtHalf($width, $height) {
+    content: '';
+    position: absolute;
+    @include lt(50%, 50%);
+    @include wh($width, $height);
+}
+
+@mixin whAbsLtHalfMargin($width, $height) {
+    content: '';
+    position: absolute;
+    @include lt(50%, 50%);
+    @include wh($width, $height);
+    margin-top: -$height/2;
+    margin-left: -$width/2;
+}
+
+@mixin svgBG($file) {
+    background-image: inline-image("svg/" + $file + ".svg");
+    background-repeat: no-repeat;
+}
+
+@mixin svgBGDim($file, $width, $height) {
+    @include svgBG($file);
+    @include wh($width, $height);
+}
+
+@mixin svgBGAbsDim($file, $width, $height) {
+    @include svgBG($file);
+    @include whAbs($width, $height);
+}
+
+@mixin svgBGAbs100($file) {
+    top: 0;
+    left: 0;
+    @include svgBGAbsDim($file, 100%, 100%);
+}
+
+@mixin f($fontSize, $lineHeight) {
+    font-size: $fontSize;
+    line-height: $lineHeight;
+}

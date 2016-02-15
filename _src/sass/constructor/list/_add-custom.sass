@@ -1,0 +1,210 @@
+.add-custom
+    position: relative
+
+    &-toggle
+        color: #1fbc88
+        +f(1.5rem, 3rem)
+        font-family: $baseFontMedium
+        cursor: pointer
+        margin-left: 25px
+        letter-spacing: 0.5px
+
+        &-plus
+            position: relative
+            top: -2px
+            display: inline-block
+            +wh(10px, auto)
+            vertical-align: middle
+            margin-right: 3px
+
+            &:before, &:after
+                content: ''
+                position: absolute
+                background: #1fbc88
+                +lt(50%, 50%)
+
+            &:before
+                margin: -1px 0 0 -5px
+                +wh(10px, 0px)
+                border-top: 1px solid #18ac7c
+                border-bottom: 1px solid #77ceb2
+
+            &:after
+                margin: -5px 0 0 -1px
+                +wh(0px, 10px)
+                border-left: 1px solid #18ac7c
+                border-right: 1px solid #77ceb2
+
+    &-form
+        +wh(425px, auto)
+        transition: all $transitionSpeed
+
+        &._active
+            left: 50%
+
+    &-list
+        padding: 35px 35px 75px 35px
+        +f(1.5rem, 2rem)
+        text-align: center
+
+        &-title
+            +f(1.8rem, 1.8rem)
+            font-family: $baseFontSemiBold
+            padding: 35px 0 0 35px
+
+        OL
+            counter-reset: section
+            text-align: left
+
+            LI
+                padding-left: 20px
+                position: relative
+                margin-bottom: 30px
+
+                &:before
+                    display: block
+                    position: absolute
+                    left: 0
+                    top: 12px
+                    counter-increment: section
+                    content: counters(section,".") "."
+                    +f(1.7rem, 1.7rem)
+
+        &-submit
+            position: relative
+            display: inline-block
+            //margin-top: 30px
+            padding: 0 28px 0 44px
+            margin-bottom: 25px
+            color: #18ac7c
+            border: 1px solid
+            border-radius: 2px
+            +f(1.4rem, 3.8rem)
+            font-family: $baseFontMedium
+            cursor: pointer
+            letter-spacing: 0.5px
+
+            &:before, &:after
+                content: ''
+                position: absolute
+                background: #1fbc88
+                +lt(26px, 50%)
+
+            &:before
+                margin: -1px 0 0 -5px
+                +wh(10px, 0px)
+                border-top: 1px solid #18ac7c
+                border-bottom: 1px solid #77ceb2
+
+            &:after
+                margin: -5px 0 0 -1px
+                +wh(0px, 10px)
+                border-left: 1px solid #18ac7c
+                border-right: 1px solid #77ceb2
+
+        &-controls
+            position: absolute
+            left: 0
+            bottom: 0
+            +wh(100%, 60px)
+            box-shadow: 0 0 5px 2px rgba(0,0,0,0.1)
+            display: flex
+            align-items: center
+            justify-content: space-between
+            padding: 0 35px
+
+            &-item
+                display: inline-block
+                border-radius: 3px
+                +f(1.5rem, 4.2rem)
+                font-family: $baseFontMedium
+                cursor: pointer
+                letter-spacing: 0.5px
+
+                &._save
+                    background: #ffdf7c
+                    padding: 0 25px
+
+    &-row
+        position: relative
+
+        *, &:before
+            color: #adacb1
+            transition: all $transitionSpeedFast
+
+        &._focus
+
+            *, &:before
+                color: black
+
+            .add-custom-description-toggle:not(._filled)
+                @extend %svg_desc_focus
+
+    &-input
+        display: block
+        width: 100%
+        padding: 10px 10px 10px 10px
+        +f(1.4rem, 1.8rem)
+        border: 1px solid
+        border-radius: 2px
+        font-family: $baseFontMedium
+
+    &-description-toggle
+        position: absolute
+        top: 12px
+        right: 11px
+        +wh(19px, 17px)
+        @extend %svg_desc
+        cursor: pointer
+
+        &._active
+            @extend %svg_desc_focus
+
+        &._filled
+            @extend %svg_desc_active
+
+    &-description-wr
+        position: absolute
+        z-index: 10
+        top: -10px
+        right: -294px
+        +wh(295px, 140px)
+        padding: 10px
+        box-shadow: 0 0 5px 2px rgba(0,0,0,0.15)
+        background: white
+
+        visibility: hidden
+        opacity: 0
+        pointer-events: none
+
+        &._active
+            visibility: visible
+            opacity: 1
+            pointer-events: auto
+            //right: -294px
+
+        &:before
+            content: ''
+            position: absolute
+            top: 24px
+            left: -6px
+            width: 0
+            height: 0
+            border-style: solid
+            border-width: 5px 6px 5px 0
+            border-color: transparent #fff transparent transparent
+
+        TEXTAREA
+            display: block
+            +wh(100%, 100%)
+            border-radius: 2px
+            border: 1px solid #d6d6d8
+            resize: none
+            +f(1.3rem, 1.8rem)
+            padding: 10px 10px 10px 10px
+            font-family: $baseFontMedium
+            letter-spacing: 0.7px
+            color: black
+
+INPUT, TEXTAREA
+    outline: none

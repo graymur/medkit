@@ -1,0 +1,33 @@
+.ui-slider
+    position: absolute
+    width: 100%
+    left: 0
+    bottom: 0
+    border-top: 2px solid #d0c9de
+
+    &-handle
+        position: absolute
+        top: -15px
+        margin-left: -15px
+        +wh(28px, 28px)
+        border-radius: 100%
+        background: white
+        border: 2px solid rgba(84, 71, 109, 0.3)
+        //transition: box-shadow $transitionSpeed, top $transitionSpeed, height $transitionSpeed, width $transitionSpeed, margin-left $transitionSpeed
+        transition: all $transitionSpeedFast
+        outline: none
+
+        &:after
+            +whAbsLtHalfMargin(14px, 6px)
+            @extend %svg_drag_construct
+            transition: all $transitionSpeedFast
+            opacity: 1
+
+        &.ui-state-active, &:hover
+            top: -11px
+            margin-left: -11px
+            +wh(22px, 22px)
+            box-shadow: 0 0 0 10px rgba(84, 71, 109, 0.1)
+
+            &:after
+                opacity: 0
